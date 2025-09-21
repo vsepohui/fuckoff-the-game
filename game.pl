@@ -5,11 +5,16 @@ use warnings;
 
 say "Hello, neo!";
 
+sub input {
+	my $s = <>;
+	chomp $s;
+	return $s;
+}
+
 sub confirm {
 	my $msg = shift;
 	print $msg . ' [Y/N] > ';
-	my $c = lc <>;
-	chomp $c;
+	my $c = lc input();
 	return 1 if ($c eq 'y');
 	return 0 if ($c eq 'n');
 	return confirm ($msg);
@@ -23,8 +28,7 @@ if ($is_neo) {
 }
 
 print "What's you real name, dude? > ";
-my $name = <>;
-chomp $name;
+my $name = input();
 
 if (lc ($name) =~ /kirill philipp filipp satan murder killer hell dead zombie demon putin trump jesus jeuda/) {
 	die "It's name not for you, don't try to start this again!";
