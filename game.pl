@@ -11,7 +11,7 @@ sub _rand {
 	my $time = time();
 	
 	my $md5_hash = md5_hex($str . " " . $time);
-	my $s = hex(substr($md5_hash, 0, 8));
+	my $s = hex $md5_hash;
 	srand($s);
 	return rand();
 }
