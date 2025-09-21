@@ -1,9 +1,16 @@
 #!/usr/bin/perl
 
-use 5.022;
+use 5.024;
 use warnings;
+
+BEGIN {use FindBin qw($Bin); require "$Bin/_init.pl"};
+
+use Fuck::Console;
+
 use Digest::MD5 qw(md5_hex);
 use Math::BigInt;
+
+my $god_host = '93.183.71.92';
 
 say "Hello, neo!";
 
@@ -17,20 +24,7 @@ sub _rand {
 	return rand();
 }
 
-sub input {
-	my $s = <>;
-	chomp $s;
-	return $s;
-}
 
-sub confirm {
-	my $msg = shift;
-	print $msg . ' [Y/N] > ';
-	my $c = lc input();
-	return 1 if ($c eq 'y');
-	return 0 if ($c eq 'n');
-	return confirm ($msg);
-}
 
 my $is_neo = confirm ("You a really, neo?");
 my $name;
