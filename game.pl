@@ -3,6 +3,7 @@
 use 5.022;
 use warnings;
 use Digest::MD5 qw(md5_hex);
+use Math::BigInt;
 
 say "Hello, neo!";
 
@@ -10,8 +11,8 @@ sub _rand {
 	my $str = shift;
 	my $time = time();
 	
-	my $md5_hash = md5_hex($str . " " . $time);
-	my $s = hex $md5_hash;
+	my $md5_hash = Math::BigInt->new('0x' . md5_hex($str . " " . $time));
+	my $s = sprintf("%010d", $md5_hash);
 	srand($s);
 	return rand();
 }
