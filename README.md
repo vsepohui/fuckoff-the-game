@@ -9,3 +9,7 @@ Console type:
 Run the Fuck off! the Game:
 
 # ./game.pl
+
+Update the Game:
+
+# git pull
