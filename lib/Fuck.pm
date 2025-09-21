@@ -118,7 +118,7 @@ sub game {
 		my $email = $self->console->input();
 		sleep 1;
 		
-		print "Subject of letter >";
+		print "Subject of letter > ";
 		my $subject = $self->console->input();
 		
 		say "Letter > ";
