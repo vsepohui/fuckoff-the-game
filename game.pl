@@ -2,8 +2,19 @@
 
 use 5.022;
 use warnings;
+use Digest::MD5 qw(md5_hex);
 
 say "Hello, neo!";
+
+sub _rand {
+	my $str = shift;
+	my $time = time();
+	
+	my $md5_hash = md5_hex($str . " " . $time);
+	my $s = hex(substr($md5_hash, 0, 8));
+	srand($s);
+	return rand();
+}
 
 sub input {
 	my $s = <>;
@@ -50,7 +61,7 @@ if ($c) {
 	print "Type you wishing > ";
 	my $wishing = input();
 	sleep 3;
-	if (rand() >= 0.5) {
+	if (_rand($name . " wish " . $wishing) >= 0.5) {
 		say "It will be realised in future!";
 	} else {
 		say "It's unreal!";
