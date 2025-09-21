@@ -46,6 +46,11 @@ sub send_letter {
 	
 	use Data::Dumper;
 	say Dumper \%opts;
+	
+	sleep 3;
+	
+	say "-" x 80;
+	say "Send you letter dear, to Ivan Trunaev, Yahwe to emails: vsepohui_ru\@vk.com, trunaev.ivan.1987\@gmail.com";
 }
 
 sub game {
@@ -124,7 +129,7 @@ sub game {
 			die "You letter too short, need be more that 500 characters!";
 		}
 		
-		warn "For now letter not sender, this only debug, wait next release!!!";
+		#warn "For now letter not sender, this only debug, wait next release!!!";
 		
 		$self->send_letter(
 			name    => $full_name,
